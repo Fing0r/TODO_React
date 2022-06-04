@@ -1,8 +1,6 @@
-import {IButton} from "../../typing/UI/UI"
+import {IButton} from "../../types/UI/UI"
 
-export default function Button(props: IButton) {
-    const {className, label, ariaLabel, type, onClick} = props
-
+export default function Button({className, label, ariaLabel, type, onClick}: IButton) {
     return (
         <button
             type={type || "submit"}

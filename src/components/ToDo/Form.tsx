@@ -3,10 +3,9 @@ import ToDoList from "./List";
 import ToDoAddTask from "./AddTask";
 import ToDoAlert from "./Alert";
 import {ChangeEvent, FormEvent, useState} from "react";
-import {IToDoForm} from "../../typing/ToDo/todo";
+import {IToDoForm} from "../../types/ToDo/todo";
 
-export default function ToDoForm(props: IToDoForm) {
-    const {title, storage, setTaskStorage, priority} = props;
+export default function ToDoForm({title, storage, setTaskStorage, priority}: IToDoForm) {
     const [taskText, setTaskText] = useState("");
     const [showTooltip, setShowTooltip] = useState(false);
 

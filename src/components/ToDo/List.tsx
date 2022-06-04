@@ -1,9 +1,7 @@
 import TaskItem from "./TaskItem";
-import {IToDoList} from "../../typing/ToDo/todo"
+import {IToDoList} from "../../types/ToDo/todo"
 
-export default function ToDoList(props: IToDoList) {
-    const {priority, taskList, setTaskStorage} = props;
-
+export default function ToDoList({priority, taskList, setTaskStorage}: IToDoList) {
     const listItem = taskList.map((item) => {
         if (item.priority !== priority) return null
         return <TaskItem

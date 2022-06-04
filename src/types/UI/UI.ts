@@ -1,4 +1,4 @@
-import {ChangeEventHandler, FormEvent, MouseEventHandler} from "react";
+import {ChangeEventHandler, FormEvent} from "react";
 
 export interface IInputText {
     placeholder: string

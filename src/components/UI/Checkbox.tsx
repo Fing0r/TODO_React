@@ -1,4 +1,4 @@
-import {ICheckbox} from "../../typing/UI/UI"
+import {ICheckbox} from "../../types/UI/UI"
 
 export default function Checkbox({checked, onChange}: ICheckbox ) {
     return (

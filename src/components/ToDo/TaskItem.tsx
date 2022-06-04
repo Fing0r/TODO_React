@@ -1,10 +1,8 @@
 import Button from "../UI/Button";
 import Checkbox from "../UI/Checkbox";
-import {ITaskItem} from "../../typing/ToDo/todo"
+import {ITaskItem} from "../../types/ToDo/todo"
 
-export default function TaskItem(props: ITaskItem) {
-    const {taskText, status, setTaskStorage, id} = props
-
+export default function TaskItem({taskText, status, setTaskStorage, id}: ITaskItem) {
     function changeStatus() {
         setTaskStorage((actual) => actual.map((item) => {
                 if (item.taskText === taskText) item.status = !status

@@ -1,7 +1,7 @@
 import ToDoForm from "./Form";
 import "../../style/index.css"
 import {useEffect, useState} from "react";
-import {ITask} from "../../typing/ToDo/todo"
+import {ITask} from "../../types/ToDo/todo"
 
 function getTaskListFromStorage() {
     const jsonTaskList = localStorage.getItem("taskList") || '[]'

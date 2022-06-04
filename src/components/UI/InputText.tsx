@@ -1,4 +1,4 @@
-import {IInputText} from "../../typing/UI/UI"
+import {IInputText} from "../../types/UI/UI"
 
 export default function InputText({placeholder, className, text, onChange}: IInputText) {
     return(

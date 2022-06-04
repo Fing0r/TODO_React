@@ -1,9 +1,8 @@
 import InputText from "../UI/InputText";
 import Button from "../UI/Button";
-import {IToDoAddTask} from "../../typing/ToDo/todo"
+import {IToDoAddTask} from "../../types/ToDo/todo"
 
-export default function ToDoAddTask(props: IToDoAddTask) {
-    const {handleChange, taskText} = props
+export default function ToDoAddTask({handleChange, taskText}: IToDoAddTask) {
     return (
         <div className="todo__add">
             <InputText
