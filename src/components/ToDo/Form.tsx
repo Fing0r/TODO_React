@@ -41,7 +41,7 @@ export default function ToDoForm({title, storage, setTaskStorage, priority}: ITo
 
     return (
         <form
-            className="todo__info todo__info--high"
+            className="todo__info"
             action="/"
             onSubmit={handleSubmit}>
             <TitleH2
