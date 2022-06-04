@@ -94,10 +94,16 @@ button {
     width: 100%;
 }
 
-.todo__info {}
+.todo__info {
+    position: relative;
+}
 
 .todo__info:not(:last-child) {
     margin-bottom: 12px;
+}
+
+.todo__alert {
+    margin-bottom: 10px;
 }
 
 .todo__info--high {}
@@ -157,8 +163,7 @@ button {
     border: 1px solid #989898;
     border-radius: 6px;
     padding: 11px;
-    display: flex;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     color: #202020;
 }

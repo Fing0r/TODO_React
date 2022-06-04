@@ -5,10 +5,9 @@ import ToDoMain from "./components/ToDo/Main";
 function App() {
     return (
         <div>
-            <ToDoMain />
+            <ToDoMain/>
         </div>
     )
-
 }
 
 export default App;

@@ -17,7 +17,7 @@ export interface IButton {
     label?: string,
     ariaLabel?: string,
     type?: "button" | "submit" | "reset" | undefined,
-    onClick?: MouseEventHandler<HTMLButtonElement> | undefined
+    onClick?: any,
 }
 
 export interface ICheckbox {
