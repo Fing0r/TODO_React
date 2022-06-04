@@ -3,7 +3,7 @@ import Checkbox from "../UI/Checkbox";
 import {ITaskItem} from "../../types/ToDo/todo"
 
 export default function TaskItem({taskText, status, setTaskStorage, id}: ITaskItem) {
-    function changeStatus() {
+    const changeStatus = () => {
         setTaskStorage((actual) => actual.map((item) => {
                 if (item.taskText === taskText) item.status = !status
                 return item
@@ -11,7 +11,7 @@ export default function TaskItem({taskText, status, setTaskStorage, id}: ITaskIt
         )
     }
 
-    function deleteTask() {
+    const deleteTask = () => {
         setTaskStorage((actual) => actual.filter((item) => item.id !== id))
     }
 

@@ -2,24 +2,27 @@ import TitleH2 from "../UI/TitleH2";
 import ToDoList from "./List";
 import ToDoAddTask from "./AddTask";
 import ToDoAlert from "./Alert";
-import {ChangeEvent, FormEvent, useState} from "react";
+import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {IToDoForm} from "../../types/ToDo/todo";
 
 export default function ToDoForm({title, storage, setTaskStorage, priority}: IToDoForm) {
     const [taskText, setTaskText] = useState("");
     const [showTooltip, setShowTooltip] = useState(false);
 
-    function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    useEffect(() => {
+        setShowTooltip(false);
+    },[taskText])
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const task = e.target.value.trim();
         setTaskText(task);
-        setShowTooltip(false);
     }
 
-    function checkForDuplicate() {
+    const checkForDuplicate = () => {
         return storage.some((item) => item.taskText === taskText)
     }
 
-    function handleSubmit(e: FormEvent) {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         const isNotValid = !taskText || checkForDuplicate();
         setShowTooltip(checkForDuplicate);
