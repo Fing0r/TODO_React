@@ -7,10 +7,10 @@ import {IToDoForm} from "../../types/ToDo/todo";
 
 export default function ToDoForm({title, storage, setTaskStorage, priority}: IToDoForm) {
     const [taskText, setTaskText] = useState("");
-    const [showTooltip, setShowTooltip] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => {
-        setShowTooltip(false);
+        setShowAlert(false);
     },[taskText])
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +25,7 @@ export default function ToDoForm({title, storage, setTaskStorage, priority}: ITo
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         const isNotValid = !taskText || checkForDuplicate();
-        setShowTooltip(checkForDuplicate);
+        setShowAlert(checkForDuplicate);
         if (isNotValid) return;
 
         const task = {
@@ -52,7 +52,7 @@ export default function ToDoForm({title, storage, setTaskStorage, priority}: ITo
                 taskText={taskText}
                 handleChange={handleChange}
             />
-            {showTooltip ? <ToDoAlert/> : null}
+            {showAlert ? <ToDoAlert/> : null}
             <ToDoList
                 priority={priority}
                 taskList={storage}
