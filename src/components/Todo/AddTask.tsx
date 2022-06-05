@@ -1,8 +1,8 @@
 import InputText from "../UI/InputText";
 import Button from "../UI/Button";
-import {IToDoAddTask} from "../../types/ToDo/todo"
+import {ITodoAddTask} from "../../types/Todo/Todo"
 
-export default function ToDoAddTask({handleChange, taskText}: IToDoAddTask) {
+export default function TodoAddTask({handleChange, taskText}: ITodoAddTask) {
     return (
         <div className="todo__add">
             <InputText

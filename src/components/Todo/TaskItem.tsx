@@ -1,6 +1,6 @@
 import Button from "../UI/Button";
 import Checkbox from "../UI/Checkbox";
-import {ITaskItem} from "../../types/ToDo/todo"
+import {ITaskItem} from "../../types/Todo/Todo"
 
 export default function TaskItem({taskText, status, setTaskList, id}: ITaskItem) {
     const changeStatus = () => {

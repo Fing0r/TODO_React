@@ -14,17 +14,17 @@ export interface ITaskItem extends ITaskDefault{
     setTaskList: Dispatch<SetStateAction<ITask[]>>,
 }
 
-export interface IToDoAddTask {
+export interface ITodoAddTask {
     taskText: string,
     handleChange(e: FormEvent): void,
 }
 
-export interface IToDo {
+export interface ITodo {
     taskList: ITask[],
     priority: string
     setTaskList: Dispatch<SetStateAction<ITask[]>>,
 }
 
-export interface IToDoMain extends IToDo {
-    title: string,
+export interface ITodos {
+    priority: string,
 }

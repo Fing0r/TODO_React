@@ -1,10 +1,9 @@
-import ToDoAddTask from "./AddTask";
+import TodoAddTask from "./AddTask";
 import ToDoAlert from "./Alert";
 import {ChangeEvent, FormEvent, useEffect, useState} from "react";
-import {IToDo} from "../../types/ToDo/todo";
+import {ITodo} from "../../types/Todo/Todo";
 
-
-export default function ToDoForm({taskList, setTaskList, priority}: IToDo) {
+export default function TodoForm({priority, setTaskList, taskList}: ITodo) {
     const [taskText, setTaskText] = useState("");
     const [showAlert, setShowAlert] = useState(false);
 
@@ -18,7 +17,7 @@ export default function ToDoForm({taskList, setTaskList, priority}: IToDo) {
     }
 
     const checkForDuplicate = () => {
-        return taskList.some((item) => item.taskText === taskText)
+        return taskList.some((item) => item.taskText === taskText);
     }
 
     const handleSubmit = (e: FormEvent) => {
@@ -34,17 +33,16 @@ export default function ToDoForm({taskList, setTaskList, priority}: IToDo) {
             id: Date.now()
         }
 
-        setTaskList((oldArray) => [...oldArray, task])
+        setTaskList((oldArray) => [...oldArray, task]);
         setTaskText("");
     }
 
     return (
         <form
             className="todo__info"
-            action="/"
             onSubmit={handleSubmit}
         >
-            <ToDoAddTask
+            <TodoAddTask
                 taskText={taskText}
                 handleChange={handleChange}
             />

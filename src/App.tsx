@@ -1,6 +1,6 @@
 import React from 'react';
 import './style/App.css';
-import ToDoMain from "./components/ToDo/Main";
+import ToDoMain from "./components/Todo/Main";
 
 function App() {
     return (
