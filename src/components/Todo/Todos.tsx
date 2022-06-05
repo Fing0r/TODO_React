@@ -22,10 +22,8 @@ export default function Todos({priority}: ITodos) {
             <TodoForm
                 taskList={taskList}
                 setTaskList={setTaskList}
-                priority={priority}
             />
             <TodoList
-                priority={priority}
                 taskList={taskList}
                 setTaskList={setTaskList}
             />

@@ -1,9 +1,8 @@
 import TaskItem from "./TaskItem";
 import {ITodo} from "../../types/Todo/Todo"
 
-export default function TodoList({priority, taskList, setTaskList}: ITodo) {
+export default function TodoList({taskList, setTaskList}: ITodo) {
     const listItem = taskList.map((item) => {
-        if (item.priority !== priority) return null
         return <TaskItem
             taskText={item.taskText}
             key={item.id}
@@ -14,7 +13,7 @@ export default function TodoList({priority, taskList, setTaskList}: ITodo) {
     })
 
     return (
-        <ul className="todo__list" data-list={priority}>
+        <ul className="todo__list">
             {listItem}
         </ul>
     )
