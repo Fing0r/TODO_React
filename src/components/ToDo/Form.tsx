@@ -1,17 +1,16 @@
-import TitleH2 from "../UI/TitleH2";
-import ToDoList from "./List";
 import ToDoAddTask from "./AddTask";
 import ToDoAlert from "./Alert";
 import {ChangeEvent, FormEvent, useEffect, useState} from "react";
-import {IToDoForm} from "../../types/ToDo/todo";
+import {IToDo} from "../../types/ToDo/todo";
 
-export default function ToDoForm({title, storage, setTaskStorage, priority}: IToDoForm) {
+
+export default function ToDoForm({taskList, setTaskList, priority}: IToDo) {
     const [taskText, setTaskText] = useState("");
     const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => {
         setShowAlert(false);
-    },[taskText])
+    }, [taskText])
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const task = e.target.value.trim();
@@ -19,7 +18,7 @@ export default function ToDoForm({title, storage, setTaskStorage, priority}: ITo
     }
 
     const checkForDuplicate = () => {
-        return storage.some((item) => item.taskText === taskText)
+        return taskList.some((item) => item.taskText === taskText)
     }
 
     const handleSubmit = (e: FormEvent) => {
@@ -35,7 +34,7 @@ export default function ToDoForm({title, storage, setTaskStorage, priority}: ITo
             id: Date.now()
         }
 
-        setTaskStorage((oldArray) => [...oldArray, task])
+        setTaskList((oldArray) => [...oldArray, task])
         setTaskText("");
     }
 
@@ -43,21 +42,14 @@ export default function ToDoForm({title, storage, setTaskStorage, priority}: ITo
         <form
             className="todo__info"
             action="/"
-            onSubmit={handleSubmit}>
-            <TitleH2
-                title={title}
-                className="todo__title"
-            />
+            onSubmit={handleSubmit}
+        >
             <ToDoAddTask
                 taskText={taskText}
                 handleChange={handleChange}
             />
-            {showAlert ? <ToDoAlert/> : null}
-            <ToDoList
-                priority={priority}
-                taskList={storage}
-                setTaskStorage={setTaskStorage}
-            />
+            {showAlert && <ToDoAlert/>}
         </form>
     )
 }
+

@@ -1,17 +1,17 @@
 import {Dispatch, FormEvent, SetStateAction} from "react";
 
-export interface ITaskItem {
+interface ITaskDefault {
     taskText: string,
     status: boolean,
-    setTaskStorage: Dispatch<SetStateAction<ITask[]>>,
-    id: number
+    id: number,
 }
 
-export interface ITask {
-    taskText: string,
+export interface ITask extends ITaskDefault{
     priority: string,
-    status: boolean,
-    id: number
+}
+
+export interface ITaskItem extends ITaskDefault{
+    setTaskList: Dispatch<SetStateAction<ITask[]>>,
 }
 
 export interface IToDoAddTask {
@@ -19,15 +19,12 @@ export interface IToDoAddTask {
     handleChange(e: FormEvent): void,
 }
 
-export interface IToDoForm {
-    title: string,
-    storage: ITask[],
-    setTaskStorage: Dispatch<SetStateAction<ITask[]>>,
+export interface IToDo {
+    taskList: ITask[],
     priority: string
+    setTaskList: Dispatch<SetStateAction<ITask[]>>,
 }
 
-export interface IToDoList {
-    priority: string,
-    taskList: ITask[],
-    setTaskStorage: Dispatch<SetStateAction<ITask[]>>,
+export interface IToDoMain extends IToDo {
+    title: string,
 }

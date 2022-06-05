@@ -2,9 +2,9 @@ import Button from "../UI/Button";
 import Checkbox from "../UI/Checkbox";
 import {ITaskItem} from "../../types/ToDo/todo"
 
-export default function TaskItem({taskText, status, setTaskStorage, id}: ITaskItem) {
+export default function TaskItem({taskText, status, setTaskList, id}: ITaskItem) {
     const changeStatus = () => {
-        setTaskStorage((actual) => actual.map((item) => {
+        setTaskList((actual) => actual.map((item) => {
                 if (item.taskText === taskText) item.status = !status
                 return item
             })
@@ -12,7 +12,7 @@ export default function TaskItem({taskText, status, setTaskStorage, id}: ITaskIt
     }
 
     const deleteTask = () => {
-        setTaskStorage((actual) => actual.filter((item) => item.id !== id))
+        setTaskList((actual) => actual.filter((item) => item.id !== id))
     }
 
     return (

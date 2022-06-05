@@ -1,7 +1,7 @@
 import TaskItem from "./TaskItem";
-import {IToDoList} from "../../types/ToDo/todo"
+import {IToDo} from "../../types/ToDo/todo"
 
-export default function ToDoList({priority, taskList, setTaskStorage}: IToDoList) {
+export default function ToDoList({priority, taskList, setTaskList}: IToDo) {
     const listItem = taskList.map((item) => {
         if (item.priority !== priority) return null
         return <TaskItem
@@ -9,7 +9,7 @@ export default function ToDoList({priority, taskList, setTaskStorage}: IToDoList
             key={item.id}
             id={item.id}
             status={item.status}
-            setTaskStorage={setTaskStorage}
+            setTaskList={setTaskList}
         />
     })
 

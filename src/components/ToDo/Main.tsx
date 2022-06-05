@@ -1,4 +1,4 @@
-import ToDoForm from "./Form";
+import ToDo from "./ToDo";
 import "../../style/index.css"
 import {useEffect, useState} from "react";
 import {ITask} from "../../types/ToDo/todo"
@@ -7,29 +7,29 @@ function getTaskListFromStorage() {
     const jsonTaskList = localStorage.getItem("taskList") || '[]'
     return JSON.parse(jsonTaskList)
 }
-const taskList: ITask[]  = getTaskListFromStorage();
+const taskStorage: ITask[]  = getTaskListFromStorage();
 
 export default function ToDoMain() {
-    const [taskStorage, setTaskStorage] = useState<ITask[]>(taskList);
+    const [taskList, setTaskList] = useState<ITask[]>(taskStorage);
 
     useEffect(() => {
-        localStorage.setItem('taskList', JSON.stringify(taskStorage));
-    }, [taskStorage])
+        localStorage.setItem('taskList', JSON.stringify(taskList));
+    }, [taskList])
 
     return (
         <div className="todo">
             <div className="todo__container">
-                <ToDoForm
+                <ToDo
                     title="low"
                     priority="low"
-                    storage={taskStorage}
-                    setTaskStorage={setTaskStorage}
+                    taskList={taskList}
+                    setTaskList={setTaskList}
                 />
-                <ToDoForm
+                <ToDo
                     title="high"
                     priority="high"
-                    storage={taskStorage}
-                    setTaskStorage={setTaskStorage}
+                    taskList={taskList}
+                    setTaskList={setTaskList}
                 />
             </div>
         </div>
