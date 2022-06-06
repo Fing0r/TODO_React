@@ -1,18 +1,18 @@
 import Button from "../UI/Button";
 import Checkbox from "../UI/Checkbox";
-import {ITaskItem} from "../../types/Todo/Todo"
+import {ITaskItem} from "../../types/Todo/Todo";
 
 export default function TaskItem({taskText, status, setTaskList, id}: ITaskItem) {
     const changeStatus = () => {
         setTaskList((actual) => actual.map((item) => {
-                if (item.taskText === taskText) item.status = !status
-                return item
+                if (item.taskText === taskText) item.status = !status;
+                return item;
             })
         )
     }
 
     const deleteTask = () => {
-        setTaskList((actual) => actual.filter((item) => item.id !== id))
+        setTaskList((actual) => actual.filter((item) => item.id !== id));
     }
 
     return (

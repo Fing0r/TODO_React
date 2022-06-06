@@ -1,13 +1,11 @@
 import {ITask} from "./types/Todo/Todo";
 
-const storageName = (priority: string) => `${priority}TaskList`;
-
-export function getTaskListFromStorage(priority: string) {
-    const TaskListJSON = localStorage.getItem(storageName(priority)) || '[]'
+export function getTaskListFromStorage(storage: string) {
+    const TaskListJSON = localStorage.getItem(storage) || '[]'
     return JSON.parse(TaskListJSON)
 }
 
-export function updateTaskListFromStorage(priority:string, taskList: ITask[]) {
+export function updateTaskListFromStorage(storage: string, taskList: ITask[]) {
     const TaskListJSON = JSON.stringify(taskList);
-    localStorage.setItem(storageName(priority), TaskListJSON);
+    localStorage.setItem(storage, TaskListJSON);
 }

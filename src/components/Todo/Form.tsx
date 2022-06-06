@@ -3,7 +3,7 @@ import ToDoAlert from "./Alert";
 import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {ITodo} from "../../types/Todo/Todo";
 
-export default function TodoForm({setTaskList, taskList}: ITodo) {
+export default function TodoForm({setTaskList, taskList, priority}: ITodo) {
     const [taskText, setTaskText] = useState("");
     const [showAlert, setShowAlert] = useState(false);
 
@@ -28,6 +28,7 @@ export default function TodoForm({setTaskList, taskList}: ITodo) {
 
         const task = {
             taskText,
+            priority,
             status: false,
             id: Date.now()
         }

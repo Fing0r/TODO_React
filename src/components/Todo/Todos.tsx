@@ -1,17 +1,9 @@
 import TitleH2 from "../UI/TitleH2";
 import TodoList from "./List";
 import TodoForm from "./Form";
-import {ITask, ITodos} from "../../types/Todo/Todo";
-import {useEffect, useState} from "react";
-import {getTaskListFromStorage, updateTaskListFromStorage} from "../../utils";
+import {ITodo} from "../../types/Todo/Todo";
 
-export default function Todos({priority}: ITodos) {
-    const taskStorage: ITask[]  = getTaskListFromStorage(priority);
-    const [taskList, setTaskList] = useState<ITask[]>(taskStorage);
-
-    useEffect(() => {
-        updateTaskListFromStorage(priority, taskList)
-    }, [taskList])
+export default function Todos({priority, taskList, setTaskList}: ITodo) {
 
     return (
         <div>
@@ -22,10 +14,12 @@ export default function Todos({priority}: ITodos) {
             <TodoForm
                 taskList={taskList}
                 setTaskList={setTaskList}
+                priority={priority}
             />
             <TodoList
                 taskList={taskList}
                 setTaskList={setTaskList}
+                priority={priority}
             />
         </div>
     )
